@@ -8,8 +8,13 @@
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]))
 
 (defroutes app-routes
-  (GET "/invoice" []
-       (response (query/get-invoices)))
+  (GET "/zipBorder/:id" [id]
+       (response (query/get-zip-border id)))
+  (GET "/zipCode/:id" [id]
+       (response (query/get-zip-border-by-zip-code id)))
+  (GET "/zipCode" {params :params} []
+       (response (remove empty? (map query/get-zip-border-by-zip-code
+                      (flatten (conj [] (params :zipCode)))))))
   (route/resources "/")
   (route/not-found "Not Found"))
 

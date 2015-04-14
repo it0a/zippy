@@ -12,7 +12,7 @@
                  [yesql "0.4.0"]
                  [mysql/mysql-connector-java "5.1.6"]]
   :plugins [[lein-ring "0.8.13"]]
-  :ring {:handler cljrest.handler/app}
+  :ring {:handler zippy.handler/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring-mock "0.1.5"]]}})

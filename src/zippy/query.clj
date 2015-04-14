@@ -8,7 +8,11 @@
    :user "root"
    :password "sriq@"})
 
-(defquery zip-border "query/invoice/get-zip-border.sql")
+(defquery zip-border "query/get-zip-border.sql")
+(defquery zip-border-by-zip-code "query/get-zip-border-by-zip-code.sql")
 
 (defn get-zip-border [id]
   (zip-border db-spec id))
+
+(defn get-zip-border-by-zip-code [zipCode]
+  (zip-border-by-zip-code db-spec zipCode))
