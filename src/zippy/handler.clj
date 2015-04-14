@@ -13,7 +13,7 @@
   (GET "/zipCode/:id" [id]
        (response (query/get-zip-border-by-zip-code id)))
   (GET "/zipCode" {params :params} []
-       (response (remove empty? (map query/get-zip-border-by-zip-code
+       (response (remove empty? (query/get-zip-border-where-zip-code-in
                       (flatten (conj [] (params :zipCode)))))))
   (route/resources "/")
   (route/not-found "Not Found"))
