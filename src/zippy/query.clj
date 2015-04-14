@@ -4,7 +4,7 @@
 (def db-spec
   {:classname "com.mysql.jdbc.Driver"
    :subprotocol "mysql"
-   :subname "//localhost:3306/zip_border"
+   :subname "//localhost:3306/zippy"
    :user "root"
    :password "sriq@"})
 
