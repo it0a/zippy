@@ -8,6 +8,10 @@
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]))
 
 (defroutes app-routes
+  (POST "/zipBorder" request
+        (let [zipCodes (or (get-in request [:params :zipCodes])
+                           (get-in request [:body :zipCodes]))]
+          (response (remove empty? (query/get-zip-border-where-zip-code-in zipCodes)))))
   (GET "/zipBorder/:id" [id]
        (response (query/get-zip-border id)))
   (GET "/zipCode/:id" [id]
